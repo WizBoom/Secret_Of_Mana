@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Character", menuName = "Character/Character")]
-public class Character : ScriptableObject
+public abstract class Character : ScriptableObject
 {
     public String m_CharacterName;
     public int m_MaxHealthPoints;
@@ -16,6 +16,5 @@ public class Character : ScriptableObject
     public int m_Attack;
     public int m_Defence;
 
-    public CharacterBehaviour m_CharacterBehaviour;
     public VisualCharacter m_VisualCharacter;
 }
