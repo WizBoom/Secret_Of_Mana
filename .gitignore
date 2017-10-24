@@ -1,8 +1,13 @@
 /[Ll]ibrary/
-/[Tt]emp/
+/Secret_Of_Mana/Library/
+/[Tt]emp
+/Secret_Of_Mana/Temp/
 /[Oo]bj/
+/Secret_Of_Mana/Obj/
 /[Bb]uild/
+/Secret_Of_Mana/Build/
 /[Bb]uilds/
+/Secret_Of_Mana/Builds/
 /Assets/AssetStoreTools*
 
 # Visual Studio 2015 cache directory
