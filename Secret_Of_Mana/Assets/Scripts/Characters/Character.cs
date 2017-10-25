@@ -14,6 +14,7 @@ public abstract class Character : ScriptableObject
     private int _Level;
     public int m_Attack;
     public int m_Defence;
+    public int m_Speed;
 
-    public VisualCharacter m_VisualCharacter;
+    public VisualCharacter m_VisualCharacter { get; set; }
 }
