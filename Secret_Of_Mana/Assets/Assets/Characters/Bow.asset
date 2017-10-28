@@ -9,9 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1642384602501334c96a785a7fc91dc1, type: 3}
-  m_Name: Arrow
+  m_Name: Bow
   m_EditorClassIdentifier: 
-  m_Name: Weapon Name
-  m_Range: 3
-  m_ArrowPrefab: {fileID: 0}
-  m_ArrowSpeed: 1
+  m_WeaponName: Weapon Name
+  m_Range: 7
+  m_ArrowPrefab: {fileID: 1212929824806986, guid: cd8b7d6d85dd6f849ac8752ad8ee0342,
+    type: 2}
+  m_ArrowSpeed: 10
+  m_ExtraDamage: 5

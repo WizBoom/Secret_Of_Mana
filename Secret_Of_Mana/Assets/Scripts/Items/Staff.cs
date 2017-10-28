@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Staff", menuName = "Items/Weapons/Staff")]
 public class Staff : Weapon
 {
+    public int m_HealAmount = 5;
+    public int m_ManaConsumption = 5;
+
     public override void Attack(Direction direction, VisualCharacter visualCharacter)
     {
         Debug.Log("Healing...");
@@ -16,8 +19,16 @@ public class Staff : Weapon
         Collider2D[] colliders = Physics2D.OverlapCapsuleAll(visualCharacter.transform.position, range, CapsuleDirection2D.Vertical, 0f);
         foreach (var collider in colliders)
         {
-            if (collider != visualCharacter.GetComponent<Collider2D>())
-                Debug.Log(collider.gameObject.name);
+            if (collider != visualCharacter.GetComponent<Collider2D>() && collider.tag == "Character")
+            {
+                //Get character
+                VisualCharacter character = collider.GetComponent<VisualCharacter>();
+                if (character)
+                {
+                    if (character.ApplyManapoints(-m_ManaConsumption))
+                        character.ApplyHealthpoints(m_HealAmount);
+                }
+            }
         }
     }
 }

@@ -5,16 +5,14 @@ using UnityEngine;
 
 public abstract class Character : ScriptableObject
 {
-    public String m_CharacterName;
-    public int m_MaxHealthPoints;
-    private int _CurrentHealthPoints;
-    public int m_MaxManaPoints;
-    private int _CurrentManaPoints;
+    public String m_CharacterName = "Name";
+    public int m_MaxHealthPoints = 10;
+    public int m_MaxManaPoints = 10;
     public Weapon m_Weapon;
-    private int _Level;
-    public int m_Attack;
-    public int m_Defence;
-    public int m_Speed;
+    private int _Level = 1;
+    public int m_Attack = 1;
+    public int m_Defence = 1;
+    public int m_Speed = 1;
 
     public VisualCharacter m_VisualCharacter { get; set; }
 

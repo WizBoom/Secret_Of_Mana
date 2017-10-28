@@ -8,6 +8,7 @@ public class Bow : Weapon
 {
     public GameObject m_ArrowPrefab;
     public float m_ArrowSpeed = 1f;
+    public int m_ExtraDamage = 5;
 
     public override void Attack(Direction direction, VisualCharacter visualCharacter)
     {
@@ -47,6 +48,6 @@ public class Bow : Weapon
         //Calculate how long the arrow will exist
         float time = m_Range/m_ArrowSpeed;
 
-        arrowScript.Initialize(time, velocity, visualCharacter.GetComponent<Collider2D>(), this);
+        arrowScript.Initialize(time, velocity, visualCharacter, this);
     }
 }

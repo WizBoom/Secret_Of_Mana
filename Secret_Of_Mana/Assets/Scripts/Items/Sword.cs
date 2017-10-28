@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Sword", menuName = "Items/Weapons/Sword")]
 public class Sword : Weapon
 {
+    public int m_ExtraDamage = 3;
     public override void Attack(Direction direction, VisualCharacter visualCharacter)
     {
         Debug.Log("Attacking...");
@@ -17,8 +18,13 @@ public class Sword : Weapon
         Collider2D[] colliders = Physics2D.OverlapCapsuleAll(visualCharacter.transform.position, range, CapsuleDirection2D.Vertical, 0f);
         foreach (var collider in colliders)
         {
-            if (collider != visualCharacter.GetComponent<Collider2D>())
-                Debug.Log(collider.gameObject.name);
+            if (collider != visualCharacter.GetComponent<Collider2D>() && collider.tag == "Character")
+            {
+                //Get character
+                VisualCharacter character = collider.GetComponent<VisualCharacter>();
+                if (character)
+                    character.ApplyHealthpoints(-visualCharacter.m_Character.m_Attack - m_ExtraDamage);
+            }
         }
     }
 }

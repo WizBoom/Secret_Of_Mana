@@ -8,16 +8,17 @@ public class Arrow : MonoBehaviour
 {
     private float _MaxTimer = 0f;
     private float _CurrentTimer = 0f;
-    private Collider2D _OwningCollider;
+    private VisualCharacter _OwningCharacter;
     private Bow _OwningBow;
 
-    public void Initialize(float timer, Vector2 velocity, Collider2D owner, Bow owningBow)
+    public void Initialize(float timer, Vector2 velocity, VisualCharacter owner, Bow owningBow)
     {
         _MaxTimer = timer;
         var rigidBody = GetComponent<Rigidbody2D>();
         if (rigidBody)
             rigidBody.velocity = velocity;
-        _OwningCollider = owner;
+        _OwningCharacter = owner;
+        _OwningBow = owningBow;
     }
 
     private void Update()
@@ -29,9 +30,12 @@ public class Arrow : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other != _OwningCollider && other.tag == "Character")
+        Collider2D ownerCollider = _OwningCharacter.GetComponent<Collider2D>();
+        if (ownerCollider && other != ownerCollider && other.tag == "Character")
         {
-            Debug.Log(other.gameObject.name);
+            int damage = _OwningCharacter.m_Character.m_Attack + _OwningBow.m_ExtraDamage;
+            _OwningCharacter.ApplyHealthpoints(-damage);
+            Destroy(gameObject);
         }
     }
 }
