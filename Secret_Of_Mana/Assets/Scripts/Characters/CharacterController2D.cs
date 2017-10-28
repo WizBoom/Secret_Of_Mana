@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-enum Direction
+public enum Direction
 {
     Up,
     Down,
@@ -25,8 +25,7 @@ public class CharacterController2D : MonoBehaviour
 
     private void Update()
     {
-        if (!Mathf.Approximately(Input.GetAxisRaw("Horizontal"), 0f) || 
-            !Mathf.Approximately(Input.GetAxisRaw("Vertical"), 0f))
+        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
         {
             //Move player
             _RigidBody.velocity = new Vector2(m_Speed * Input.GetAxisRaw("Horizontal"),
@@ -47,6 +46,11 @@ public class CharacterController2D : MonoBehaviour
         else
         {
             GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
+        }
+
+        if (Input.GetButtonDown("Attack"))
+        {
+            GetComponent<VisualCharacter>().m_Character.Attack(_PlayerDirection);
         }
     }
 

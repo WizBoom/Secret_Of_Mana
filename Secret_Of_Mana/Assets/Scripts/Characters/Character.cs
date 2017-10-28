@@ -17,4 +17,6 @@ public abstract class Character : ScriptableObject
     public int m_Speed;
 
     public VisualCharacter m_VisualCharacter { get; set; }
+
+    public abstract void Attack(Direction direction);
 }

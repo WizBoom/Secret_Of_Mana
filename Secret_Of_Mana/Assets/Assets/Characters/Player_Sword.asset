@@ -14,7 +14,7 @@ MonoBehaviour:
   m_CharacterName: Player_Sword
   m_MaxHealthPoints: 50
   m_MaxManaPoints: 10
-  m_Weapon: {fileID: 0}
+  m_Weapon: {fileID: 11400000, guid: a7313b7e374af4740b879d9c127898d8, type: 2}
   m_Attack: 10
   m_Defence: 10
   m_Speed: 5
