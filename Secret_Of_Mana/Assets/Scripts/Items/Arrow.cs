@@ -33,8 +33,8 @@ public class Arrow : MonoBehaviour
         Collider2D ownerCollider = _OwningCharacter.GetComponent<Collider2D>();
         if (ownerCollider && other != ownerCollider && other.tag == "Character")
         {
-            int damage = _OwningCharacter.m_Character.m_Attack + _OwningBow.m_ExtraDamage;
-            _OwningCharacter.ApplyHealthpoints(-damage);
+            int damage = _OwningCharacter.m_Character.m_CharacterStats.m_Attack + _OwningBow.m_ExtraDamage;
+            _OwningCharacter.m_Character.ApplyHealthpoints(-damage);
             Destroy(gameObject);
         }
     }

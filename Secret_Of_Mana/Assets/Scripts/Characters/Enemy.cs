@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Character", menuName = "Character/Enemy")]
+[System.Serializable]
 public class Enemy : Character
 {
     public override void Attack(Direction direction)

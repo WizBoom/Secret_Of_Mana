@@ -23,7 +23,7 @@ public class Sword : Weapon
                 //Get character
                 VisualCharacter character = collider.GetComponent<VisualCharacter>();
                 if (character)
-                    character.ApplyHealthpoints(-visualCharacter.m_Character.m_Attack - m_ExtraDamage);
+                    character.m_Character.ApplyHealthpoints(-visualCharacter.m_Character.m_CharacterStats.m_Attack - m_ExtraDamage);
             }
         }
     }

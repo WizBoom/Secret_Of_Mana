@@ -11,7 +11,7 @@ public class Staff : Weapon
     public override void Attack(Direction direction, VisualCharacter visualCharacter)
     {
         Debug.Log("Healing...");
-        if (visualCharacter.ApplyManapoints(-m_ManaConsumption))
+        if (visualCharacter.m_Character.ApplyManapoints(-m_ManaConsumption))
         {
             //Calculate the range based on the size of the character
             Vector2 range = new Vector2(visualCharacter.GetComponent<BoxCollider2D>().size.x + m_Range,
@@ -26,7 +26,7 @@ public class Staff : Weapon
                     VisualCharacter character = collider.GetComponent<VisualCharacter>();
                     if (character)
                     {
-                        character.ApplyHealthpoints(m_HealAmount);
+                        character.m_Character.ApplyHealthpoints(m_HealAmount);
                     }
                 }
             }
