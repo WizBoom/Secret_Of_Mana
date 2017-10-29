@@ -19,11 +19,13 @@ public class UIManager
         if (m_InventoryPanel.gameObject.activeSelf)
         {
             m_InventoryPanel.gameObject.SetActive(false);
+            Time.timeScale = 1f;
         }
         else
         {
             m_CharacterPanel.gameObject.SetActive(false);
             m_InventoryPanel.gameObject.SetActive(true);
+            Time.timeScale = 0f;
         }
     }
 
@@ -32,11 +34,13 @@ public class UIManager
         if (m_CharacterPanel.gameObject.activeSelf)
         {
             m_CharacterPanel.gameObject.SetActive(false);
+            Time.timeScale = 1f;
         }
         else
         {
             m_InventoryPanel.gameObject.SetActive(false);
             m_CharacterPanel.gameObject.SetActive(true);
+            Time.timeScale = 0f;
         }
     }
 }
