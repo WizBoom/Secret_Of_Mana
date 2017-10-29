@@ -6,6 +6,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public CharacterManager m_CharacterManager;
+    public UIManager m_UIManager;
+
     public static GameManager m_Instance = null;
 
     private void Awake()
@@ -13,7 +15,21 @@ public class GameManager : MonoBehaviour
         if (!m_Instance)
             m_Instance = this;
 
+        m_UIManager.Init();
+
         CreateCharacterPrefabs();
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("InventoryPanel"))
+        {
+            m_UIManager.ToggleInventoryPanel();
+        }
+        else if (Input.GetButtonDown("CharacterPanel"))
+        {
+            m_UIManager.ToggleCharacterPanel();
+        }
     }
 
     private void CreateCharacterPrefabs()
