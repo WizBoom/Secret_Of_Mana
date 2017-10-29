@@ -48,6 +48,7 @@ public class CharacterManager
         {
             m_CurrentPlayer = m_Players[0];
             m_CurrentPlayer.m_VisualCharacter.GetComponent<CharacterController2D>().enabled = true;
+            Camera.main.transform.parent = m_CurrentPlayer.m_VisualCharacter.transform;
         }
     }
 }
