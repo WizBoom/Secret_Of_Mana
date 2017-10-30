@@ -8,15 +8,28 @@ public class UIManager
 {
     public InventoryPanel m_InventoryPanel;
     public CharacterPanel m_CharacterPanel;
-    public RectTransform m_ContentObject;
-    public float m_ButtonHeight = 50f;
-    public float m_ButtonMargin = 10f;
-    public float m_ButtonDistance = 10f;
-    public Sprite m_ButtonSprite;
-    public Color m_ButtonColor;
-    public int m_ButtonTextSize = 14;
-    public Font m_ButtonTextFont;
-    public Color m_ButtonTextColor;
+    public RectTransform m_InventoryContentObject;
+    public RectTransform m_CharacterContentObject;
+
+    //General UI
+    public Font m_Font;
+    public Color m_FontColor = Color.black;
+    public float m_ScrollbarWidth = 20f;
+
+    //Character UI
+    public float m_CharacterButtonHeight = 50f;
+    public float m_CharacterButtonMargin = 10f;
+    public float m_CharacterButtonDistance = 10f;
+    public Sprite m_CharacterButtonSprite;
+    public Color m_CharacterButtonColor;
+    public int m_CharacterFontSize = 14;
+
+    //Inventory UI
+    public float m_InventoryTileHeight = 10f;
+    public float m_InventoryTileWidth = 10f;
+    public float m_InventoryTileDistance = 10f;
+    public int m_InventoryTileColumns = 3;
+    public int m_InventoryFontSize = 8;
 
     public void Init()
     {

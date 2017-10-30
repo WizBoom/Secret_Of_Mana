@@ -11,6 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f7d7826c962a3747912321f5d8f5a10, type: 3}
   m_Name: Staff
   m_EditorClassIdentifier: 
-  m_WeaponName: Staff of Healing
+  m_ItemName: Staff
+  m_Amount: 1
+  m_Type: 2
   m_Range: 3
   m_HealAmount: 5
+  m_ManaConsumption: 5
