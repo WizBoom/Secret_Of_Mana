@@ -63,18 +63,12 @@ public class GameManager : MonoBehaviour
                     controller = character.gameObject.AddComponent<CharacterController2D>();
                     controller.m_Speed = player.m_CharacterStats.m_Speed;
                 }
-                controller.enabled = false;
                 player.m_VisualCharacter = character;
                 character.m_Character = player;
                 player.InitCharacter();
             }
         }
 
-        if (m_CharacterManager.m_Players.Count > 0)
-        {
-            m_CharacterManager.m_CurrentPlayer = m_CharacterManager.m_Players[0];
-            m_CharacterManager.m_CurrentPlayer.m_VisualCharacter.GetComponent<CharacterController2D>().enabled = true;
-            Camera.main.transform.parent = m_CharacterManager.m_CurrentPlayer.m_VisualCharacter.transform;
-        }
+        m_CharacterManager.SetCurrentPlayer(0);
     }
 }

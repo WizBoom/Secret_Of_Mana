@@ -41,7 +41,7 @@ public class CharacterPanel : ManaPanel
             imageComponent.color = UIManager.m_CharacterButtonColor;
             var buttonComponent = button.AddComponent<Button>();
             int charIndex = i;
-            buttonComponent.onClick.AddListener(delegate { TempFunction(charIndex); });
+            buttonComponent.onClick.AddListener(delegate { SwitchCharacter(charIndex); });
 
             //Text
             var textObject = new GameObject("Text");
@@ -52,7 +52,7 @@ public class CharacterPanel : ManaPanel
             rectTransform.offsetMin = new Vector2(0, 0);
             rectTransform.offsetMax = new Vector2(0, 0);
             var textComponent = textObject.AddComponent<Text>();
-            textComponent.text = player.m_CharacterStats.m_CharacterName;
+            textComponent.text = player.m_CharacterStats.m_CharacterName + "\n-\n" + player.m_Weapon.m_ItemName;
             textComponent.font = UIManager.m_Font;
             textComponent.fontSize = UIManager.m_CharacterFontSize;
             textComponent.color = UIManager.m_FontColor;
@@ -60,9 +60,9 @@ public class CharacterPanel : ManaPanel
         }
     }
 
-    //TODO: CharacterSwitch
-    public void TempFunction(int a)
+    public void SwitchCharacter(int playerIndex)
     {
-        Debug.Log(a);
+        GameManager.m_Instance.m_CharacterManager.SetCurrentPlayer(playerIndex);
+        GameManager.m_Instance.m_UIManager.ToggleCharacterPanel();
     }
 }
