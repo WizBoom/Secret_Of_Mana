@@ -23,6 +23,11 @@ public class CharacterManager
         //Set current player and move main camera
         m_CurrentPlayer = player;
         m_CurrentPlayer.m_VisualCharacter.GetComponent<CharacterController2D>().enabled = true;
+
+        var controller = m_CurrentPlayer.m_VisualCharacter.GetComponent<AIController>();
+        if (controller)
+            m_CurrentPlayer.m_VisualCharacter.GetComponent<AIController>().enabled = false;
+
         Camera.main.transform.parent = m_CurrentPlayer.m_VisualCharacter.transform;
         Camera.main.transform.localPosition = new Vector3(0, 0, -1);
 
@@ -32,6 +37,9 @@ public class CharacterManager
             if (p != player)
             {
                 p.m_VisualCharacter.GetComponent<CharacterController2D>().enabled = false;
+                controller = m_CurrentPlayer.m_VisualCharacter.GetComponent<AIController>();
+                if (controller)
+                    p.m_VisualCharacter.GetComponent<AIController>().enabled = true;
             }
         }
     }
