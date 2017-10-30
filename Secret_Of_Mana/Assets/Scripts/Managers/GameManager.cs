@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public UIManager m_UIManager;
     public Inventory m_Inventory;
 
+    public static int m_PlayerLayer = 8;
     public static GameManager m_Instance = null;
 
     private void Awake()
@@ -33,6 +34,8 @@ public class GameManager : MonoBehaviour
         {
             m_UIManager.ToggleCharacterPanel();
         }
+        
+        m_CharacterManager.Update();
     }
 
     private void CreateCharacterPrefabs()

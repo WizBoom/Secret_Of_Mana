@@ -31,7 +31,8 @@ public class Arrow : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         Collider2D ownerCollider = _OwningCharacter.GetComponent<Collider2D>();
-        if (ownerCollider && other != ownerCollider && other.tag == "Character")
+        if (ownerCollider && other != ownerCollider && other.tag == "Character" &&
+             other.gameObject.layer != GameManager.m_PlayerLayer)
         {
             int damage = _OwningCharacter.m_Character.m_CharacterStats.m_Attack + _OwningBow.m_ExtraDamage;
             _OwningCharacter.m_Character.ApplyHealthpoints(-damage);

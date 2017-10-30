@@ -15,4 +15,5 @@ MonoBehaviour:
   m_Amount: 1
   m_Type: 0
   m_Range: 3
+  m_RateOfAttack: 1
   m_ExtraDamage: 3

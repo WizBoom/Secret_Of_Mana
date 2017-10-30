@@ -42,5 +42,14 @@ public class CharacterManager
                     p.m_VisualCharacter.GetComponent<AIController>().enabled = true;
             }
         }
+
+        //Reset cooldown
+        m_CurrentPlayer.m_CurrentWeaponTimer = m_CurrentPlayer.m_Weapon.m_RateOfAttack;
+    }
+
+    public void Update()
+    {
+        if (m_CurrentPlayer.m_CurrentWeaponTimer < m_CurrentPlayer.m_Weapon.m_RateOfAttack)
+            m_CurrentPlayer.m_CurrentWeaponTimer += Time.deltaTime;   
     }
 }

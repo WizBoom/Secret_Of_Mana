@@ -13,7 +13,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ItemName: Staff
   m_Amount: 1
-  m_Type: 2
+  m_Type: 0
   m_Range: 3
+  m_RateOfAttack: 1
   m_HealAmount: 5
   m_ManaConsumption: 5

@@ -9,6 +9,10 @@ public class Player : Character
 
     public override void Attack(Direction direction)
     {
-        m_Weapon.Attack(direction, m_VisualCharacter);
+        if (m_CurrentWeaponTimer >= m_Weapon.m_RateOfAttack)
+        {
+            m_Weapon.Attack(direction, m_VisualCharacter);
+            m_CurrentWeaponTimer = 0;
+        }
     }
 }

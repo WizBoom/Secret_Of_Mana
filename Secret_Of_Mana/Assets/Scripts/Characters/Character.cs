@@ -9,6 +9,7 @@ public abstract class Character
     public CharacterStats m_CharacterStats;
     private int _CurrentHealthpoints = 0;
     private int _CurrentManapoints = 0;
+    public float m_CurrentWeaponTimer { get; set; }
     private int _Level = 1;
     public Vector3 m_LastSavedPosition;
 
@@ -41,6 +42,17 @@ public abstract class Character
         if (_CurrentHealthpoints <= 0)
         {
             Debug.Log("Thing is dead");
+
+            //Remove from list
+            for (int i = 0; i < GameManager.m_Instance.m_CharacterManager.m_Enemies.Count; i++)
+            {
+                if (GameManager.m_Instance.m_CharacterManager.m_Enemies[i] == this)
+                {
+                    GameObject.Destroy(m_VisualCharacter.gameObject);
+                    GameManager.m_Instance.m_CharacterManager.m_Enemies.RemoveAt(i);
+
+                }
+            }
             return;
         }
 

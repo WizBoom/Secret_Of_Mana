@@ -18,7 +18,8 @@ public class Sword : Weapon
         Collider2D[] colliders = Physics2D.OverlapCapsuleAll(visualCharacter.transform.position, range, CapsuleDirection2D.Vertical, 0f);
         foreach (var collider in colliders)
         {
-            if (collider != visualCharacter.GetComponent<Collider2D>() && collider.tag == "Character")
+            if (collider != visualCharacter.GetComponent<Collider2D>() && collider.tag == "Character" && 
+                collider.gameObject.layer != GameManager.m_PlayerLayer)
             {
                 //Get character
                 VisualCharacter character = collider.GetComponent<VisualCharacter>();
