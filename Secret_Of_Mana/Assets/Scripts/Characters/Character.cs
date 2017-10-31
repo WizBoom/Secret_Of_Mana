@@ -2,14 +2,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.VR.WSA.Persistence;
 
 [System.Serializable]
 public abstract class Character
 {
     public CharacterStats m_CharacterStats;
-    private int _CurrentHealthpoints = 0;
-    private int _CurrentManapoints = 0;
-    public float m_CurrentWeaponTimer { get; set; }
+    public int m_CurrentHealthpoints { get; set; }
+    public int m_CurrentManapoints { get; set; }
+public float m_CurrentWeaponTimer { get; set; }
     private int _Level = 1;
     public Vector3 m_LastSavedPosition;
 
@@ -19,8 +20,8 @@ public abstract class Character
 
     public void InitCharacter()
     {
-        _CurrentHealthpoints = m_CharacterStats.m_MaxHealthPoints;
-        _CurrentManapoints = m_CharacterStats.m_MaxManaPoints;
+        m_CurrentHealthpoints = m_CharacterStats.m_MaxHealthPoints;
+        m_CurrentManapoints = m_CharacterStats.m_MaxManaPoints;
     }
 
     public void ApplyHealthpoints(int healthpoints)
@@ -35,11 +36,13 @@ public abstract class Character
                 health = -1;
         }
 
-        _CurrentHealthpoints += health;
-        if (_CurrentHealthpoints > m_CharacterStats.m_MaxHealthPoints)
-            _CurrentHealthpoints = m_CharacterStats.m_MaxHealthPoints;
+        m_CurrentHealthpoints += health;
+        if (m_CurrentHealthpoints > m_CharacterStats.m_MaxHealthPoints)
+            m_CurrentHealthpoints = m_CharacterStats.m_MaxHealthPoints;
 
-        if (_CurrentHealthpoints <= 0)
+        GameManager.m_Instance.m_UIManager.Refresh();
+
+        if (m_CurrentHealthpoints <= 0)
         {
             Debug.Log("Thing is dead");
 
@@ -50,25 +53,25 @@ public abstract class Character
                 {
                     GameObject.Destroy(m_VisualCharacter.gameObject);
                     GameManager.m_Instance.m_CharacterManager.m_Enemies.RemoveAt(i);
-
                 }
             }
             return;
         }
 
-        Debug.Log("Current Health: " + _CurrentHealthpoints);
+        Debug.Log("Current Health: " + m_CurrentHealthpoints);
     }
 
     public bool ApplyManapoints(int manapoints)
     {
-        if (_CurrentManapoints + manapoints < 0)
+        if (m_CurrentManapoints + manapoints < 0)
             return false;
 
-        _CurrentManapoints += manapoints;
-        if (_CurrentManapoints >= m_CharacterStats.m_MaxManaPoints)
-            _CurrentManapoints = m_CharacterStats.m_MaxManaPoints;
+        m_CurrentManapoints += manapoints;
+        if (m_CurrentManapoints >= m_CharacterStats.m_MaxManaPoints)
+            m_CurrentManapoints = m_CharacterStats.m_MaxManaPoints;
 
-        Debug.Log("Current Mana: " + _CurrentManapoints);
+        GameManager.m_Instance.m_UIManager.Refresh();
+        Debug.Log("Current Mana: " + m_CurrentManapoints);
         return true;
     }
 }

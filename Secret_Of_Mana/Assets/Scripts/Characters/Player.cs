@@ -6,6 +6,7 @@ using UnityEngine;
 public class Player : Character
 {
     public Weapon m_Weapon;
+    public HUD m_HUD;
 
     public override void Attack(Direction direction)
     {

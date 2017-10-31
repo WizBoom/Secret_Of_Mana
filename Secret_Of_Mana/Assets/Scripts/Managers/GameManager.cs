@@ -53,8 +53,13 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        foreach (var player in m_CharacterManager.m_Players)
+        //HUD chunk
+        float chunkWidth = (m_UIManager.m_Canvas.offsetMax.x - m_UIManager.m_Canvas.offsetMin.x) / (m_CharacterManager.m_Players.Count + 2);
+
+        //Create players / link their HUD
+        for (int i = 0; i < m_CharacterManager.m_Players.Count; i++)
         {
+            var player = m_CharacterManager.m_Players[i];
             if (player.m_VisualCharacter)
             {
                 VisualCharacter character = Instantiate(player.m_VisualCharacter, player.m_LastSavedPosition,
@@ -68,10 +73,25 @@ public class GameManager : MonoBehaviour
                 }
                 player.m_VisualCharacter = character;
                 character.m_Character = player;
+
+                var HUDObject = Instantiate(m_UIManager.m_HUDPrefab, m_UIManager.m_Canvas.transform);
+
+                //Calculate position
+                float index = (i - ((m_CharacterManager.m_Players.Count - 1) / 2f))*(m_CharacterManager.m_Players.Count/2f);
+                Vector2 pos = new Vector2(index*chunkWidth, m_UIManager.m_HUDYPos);
+                var HUDRect = HUDObject.GetComponent<RectTransform>();
+                float width = HUDRect.offsetMax.x - HUDRect.offsetMin.x;
+                float height = HUDRect.offsetMax.y - HUDRect.offsetMin.y;
+                HUDRect.offsetMin = new Vector2(pos.x - width / 2f, pos.y - height / 2f);
+                HUDRect.offsetMax = new Vector2(pos.x + width / 2f, pos.y + height / 2f);
+
+                player.m_HUD = HUDObject.GetComponent<HUD>();
+                player.m_HUD.m_Character = player;
                 player.InitCharacter();
             }
         }
 
+        m_UIManager.Refresh();
         m_CharacterManager.SetCurrentPlayer(0);
     }
 }

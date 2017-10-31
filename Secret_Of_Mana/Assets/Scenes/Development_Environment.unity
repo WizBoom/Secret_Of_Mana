@@ -1440,31 +1440,39 @@ MonoBehaviour:
       m_VisualCharacter: {fileID: 114958145399884426, guid: 6cf956add3b21124ea119323740ef9bf,
         type: 2}
       m_Weapon: {fileID: 11400000, guid: a7313b7e374af4740b879d9c127898d8, type: 2}
+      m_HUD: {fileID: 0}
     - m_CharacterStats: {fileID: 11400000, guid: 9d8718fcaf475744f9662f9343d42b30,
         type: 2}
       m_LastSavedPosition: {x: 0, y: 0, z: 0}
       m_VisualCharacter: {fileID: 114958145399884426, guid: 6cf956add3b21124ea119323740ef9bf,
         type: 2}
       m_Weapon: {fileID: 11400000, guid: 3b4f5248c4e968d4782d0642b716f7c9, type: 2}
+      m_HUD: {fileID: 0}
     - m_CharacterStats: {fileID: 11400000, guid: 9d8718fcaf475744f9662f9343d42b30,
         type: 2}
       m_LastSavedPosition: {x: 0, y: 0, z: 0}
       m_VisualCharacter: {fileID: 114958145399884426, guid: 6cf956add3b21124ea119323740ef9bf,
         type: 2}
       m_Weapon: {fileID: 11400000, guid: 377a7d4783f47e6409801c601ba606d5, type: 2}
+      m_HUD: {fileID: 0}
     m_CurrentPlayer:
       m_CharacterStats: {fileID: 0}
       m_LastSavedPosition: {x: 0, y: 0, z: 0}
       m_VisualCharacter: {fileID: 0}
       m_Weapon: {fileID: 0}
+      m_HUD: {fileID: 0}
   m_UIManager:
     m_InventoryPanel: {fileID: 196641706}
     m_CharacterPanel: {fileID: 1914033635}
     m_InventoryContentObject: {fileID: 1942716357}
     m_CharacterContentObject: {fileID: 192045514}
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Canvas: {fileID: 1235872394}
     m_FontColor: {r: 0, g: 0, b: 0, a: 1}
     m_ScrollbarWidth: 20
+    m_HUDPrefab: {fileID: 1727856313241670, guid: 1361a3ec11b4a3140b847253f73fd8f7,
+      type: 2}
+    m_HUDYPos: 120
     m_CharacterButtonHeight: 75
     m_CharacterButtonMargin: 10
     m_CharacterButtonDistance: 10

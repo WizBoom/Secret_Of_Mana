@@ -13,8 +13,13 @@ public class UIManager
 
     //General UI
     public Font m_Font;
+    public RectTransform m_Canvas;
     public Color m_FontColor = Color.black;
     public float m_ScrollbarWidth = 20f;
+
+    //HUD
+    public GameObject m_HUDPrefab;
+    public float m_HUDYPos = 75f;
 
     //Character UI
     public float m_CharacterButtonHeight = 50f;
@@ -66,6 +71,15 @@ public class UIManager
             m_CharacterPanel.gameObject.SetActive(true);
             GameManager.m_Instance.m_UIManager.m_CharacterPanel.Refresh();
             Time.timeScale = 0f;
+        }
+    }
+
+    public void Refresh()
+    {
+        //Refresh players
+        foreach (var player in GameManager.m_Instance.m_CharacterManager.m_Players)
+        {
+            player.m_HUD.Refresh();
         }
     }
 }
