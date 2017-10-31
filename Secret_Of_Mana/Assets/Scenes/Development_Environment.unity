@@ -1426,17 +1426,23 @@ MonoBehaviour:
     - m_CharacterStats: {fileID: 11400000, guid: 6e06d4115a0867f469a8b3cb50380aad,
         type: 2}
       m_LastSavedPosition: {x: 5, y: 1, z: 0}
+      m_AIControl: {fileID: 114208018657085612, guid: c227b6731d1fab74494d3de3dc71068e,
+        type: 2}
       m_VisualCharacter: {fileID: 114312126512380922, guid: c0dc53784f8ba0e44924dd6e9a236ff0,
         type: 2}
     - m_CharacterStats: {fileID: 11400000, guid: 6e06d4115a0867f469a8b3cb50380aad,
         type: 2}
       m_LastSavedPosition: {x: -5, y: 1, z: 0}
+      m_AIControl: {fileID: 114669668356583816, guid: 9fb004f9bc099874082749d3bee5b99d,
+        type: 2}
       m_VisualCharacter: {fileID: 114312126512380922, guid: c0dc53784f8ba0e44924dd6e9a236ff0,
         type: 2}
     m_Players:
     - m_CharacterStats: {fileID: 11400000, guid: 9d8718fcaf475744f9662f9343d42b30,
         type: 2}
       m_LastSavedPosition: {x: 0, y: 0, z: 0}
+      m_AIControl: {fileID: 114042830248373842, guid: 311e69eae4f92984d94553fd471eca34,
+        type: 2}
       m_VisualCharacter: {fileID: 114958145399884426, guid: 6cf956add3b21124ea119323740ef9bf,
         type: 2}
       m_Weapon: {fileID: 11400000, guid: a7313b7e374af4740b879d9c127898d8, type: 2}
@@ -1444,6 +1450,8 @@ MonoBehaviour:
     - m_CharacterStats: {fileID: 11400000, guid: 9d8718fcaf475744f9662f9343d42b30,
         type: 2}
       m_LastSavedPosition: {x: 0, y: 0, z: 0}
+      m_AIControl: {fileID: 114042830248373842, guid: 311e69eae4f92984d94553fd471eca34,
+        type: 2}
       m_VisualCharacter: {fileID: 114958145399884426, guid: 6cf956add3b21124ea119323740ef9bf,
         type: 2}
       m_Weapon: {fileID: 11400000, guid: 3b4f5248c4e968d4782d0642b716f7c9, type: 2}
@@ -1451,6 +1459,8 @@ MonoBehaviour:
     - m_CharacterStats: {fileID: 11400000, guid: 9d8718fcaf475744f9662f9343d42b30,
         type: 2}
       m_LastSavedPosition: {x: 0, y: 0, z: 0}
+      m_AIControl: {fileID: 114042830248373842, guid: 311e69eae4f92984d94553fd471eca34,
+        type: 2}
       m_VisualCharacter: {fileID: 114958145399884426, guid: 6cf956add3b21124ea119323740ef9bf,
         type: 2}
       m_Weapon: {fileID: 11400000, guid: 377a7d4783f47e6409801c601ba606d5, type: 2}
@@ -1458,6 +1468,7 @@ MonoBehaviour:
     m_CurrentPlayer:
       m_CharacterStats: {fileID: 0}
       m_LastSavedPosition: {x: 0, y: 0, z: 0}
+      m_AIControl: {fileID: 0}
       m_VisualCharacter: {fileID: 0}
       m_Weapon: {fileID: 0}
       m_HUD: {fileID: 0}

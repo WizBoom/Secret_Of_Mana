@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(VisualCharacter))]
 public abstract class AIController : MonoBehaviour
 {
+    public abstract void InitController(GameObject visualCharacter);
 }

@@ -10,6 +10,15 @@ public class CharacterManager
     [HideInInspector]
     public Player m_CurrentPlayer;
 
+    public void InitEnemy()
+    {
+        foreach (var enemy in m_Enemies)
+        {
+            enemy.m_AIControl.InitController(enemy.m_VisualCharacter.gameObject);
+        }
+    }
+
+
     public void SetCurrentPlayer(int playerIndex)
     {
         //Return if index is out of range
@@ -24,22 +33,27 @@ public class CharacterManager
         m_CurrentPlayer = player;
         m_CurrentPlayer.m_VisualCharacter.GetComponent<CharacterController2D>().enabled = true;
 
-        var controller = m_CurrentPlayer.m_VisualCharacter.GetComponent<AIController>();
-        if (controller)
-            m_CurrentPlayer.m_VisualCharacter.GetComponent<AIController>().enabled = false;
-
         Camera.main.transform.parent = m_CurrentPlayer.m_VisualCharacter.transform;
         Camera.main.transform.localPosition = new Vector3(0, 0, -1);
 
-        //Disable all controllers
+        //Controllers
         foreach (var p in m_Players)
         {
-            if (p != player)
+            var controller = p.m_VisualCharacter.GetComponent<AIController>();
+            if (!controller)
+            {
+                p.m_AIControl.InitController(p.m_VisualCharacter.gameObject);
+                controller = p.m_VisualCharacter.GetComponent<AIController>();
+            }
+            if (p != m_CurrentPlayer)
             {
                 p.m_VisualCharacter.GetComponent<CharacterController2D>().enabled = false;
-                controller = m_CurrentPlayer.m_VisualCharacter.GetComponent<AIController>();
                 if (controller)
                     p.m_VisualCharacter.GetComponent<AIController>().enabled = true;
+            }
+            else if(controller)
+            {
+                p.m_VisualCharacter.GetComponent<AIController>().enabled = false;
             }
         }
 
