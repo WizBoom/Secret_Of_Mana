@@ -10,7 +10,8 @@ public abstract class Character
     public CharacterStats m_CharacterStats;
     public int m_CurrentHealthpoints { get; set; }
     public int m_CurrentManapoints { get; set; }
-public float m_CurrentWeaponTimer { get; set; }
+    public float m_CurrentWeaponTimer { get; set; }
+    public float m_CurrentManaTimer { get; set; }
     private int _Level = 1;
     public Vector3 m_LastSavedPosition;
 

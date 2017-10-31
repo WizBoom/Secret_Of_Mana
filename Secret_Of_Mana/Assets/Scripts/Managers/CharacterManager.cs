@@ -50,6 +50,19 @@ public class CharacterManager
     public void Update()
     {
         if (m_CurrentPlayer.m_CurrentWeaponTimer < m_CurrentPlayer.m_Weapon.m_RateOfAttack)
-            m_CurrentPlayer.m_CurrentWeaponTimer += Time.deltaTime;   
+            m_CurrentPlayer.m_CurrentWeaponTimer += Time.deltaTime;
+
+        foreach (var p in m_Players)
+        {
+            if (p.m_CurrentManapoints == p.m_CharacterStats.m_MaxManaPoints)
+                continue;
+
+            p.m_CurrentManaTimer += Time.deltaTime;
+            if (p.m_CurrentManaTimer > p.m_CharacterStats.m_ManaRefreshRate)
+            {
+                p.m_CurrentManaTimer = 0;
+                p.ApplyManapoints(1);
+            }
+        } 
     }
 }
