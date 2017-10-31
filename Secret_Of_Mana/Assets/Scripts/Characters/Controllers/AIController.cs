@@ -4,5 +4,4 @@ using UnityEngine;
 
 public abstract class AIController : MonoBehaviour
 {
-    public abstract void InitController(GameObject visualCharacter);
 }

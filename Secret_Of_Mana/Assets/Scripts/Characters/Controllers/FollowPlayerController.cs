@@ -9,12 +9,6 @@ public class FollowPlayerController : AIController
     private Rigidbody2D _RigidBody2D;
     public float m_Distance = 1f;
 
-    public override void InitController(GameObject visualCharacter)
-    {
-        var ai = visualCharacter.AddComponent<FollowPlayerController>();
-        ai.m_Distance = m_Distance;
-    }
-
     private void Start()
     {
         //Get player index

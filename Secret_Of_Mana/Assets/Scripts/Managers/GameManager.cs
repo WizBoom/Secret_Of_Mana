@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
             m_Instance = this;
 
         m_UIManager.Init();
-        m_CharacterManager.InitEnemy();
 
         CreateCharacterPrefabs();
     }

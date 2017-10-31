@@ -13,4 +13,6 @@ public class CharacterStats : ScriptableObject
     public int m_Attack = 1;
     public int m_Defence = 1;
     public int m_Speed = 1;
+    public float m_UnarmedRange = 0;
+    public float m_UnarmedRateOfAttack = 1f;
 }

@@ -14,7 +14,6 @@ public abstract class Character
     public float m_CurrentManaTimer { get; set; }
     private int _Level = 1;
     public Vector3 m_LastSavedPosition;
-    public AIController m_AIControl;
     public VisualCharacter m_VisualCharacter;
 
     public abstract void Attack(Direction direction);

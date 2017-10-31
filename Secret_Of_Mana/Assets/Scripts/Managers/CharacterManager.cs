@@ -10,15 +10,6 @@ public class CharacterManager
     [HideInInspector]
     public Player m_CurrentPlayer;
 
-    public void InitEnemy()
-    {
-        foreach (var enemy in m_Enemies)
-        {
-            enemy.m_AIControl.InitController(enemy.m_VisualCharacter.gameObject);
-        }
-    }
-
-
     public void SetCurrentPlayer(int playerIndex)
     {
         //Return if index is out of range
@@ -42,7 +33,6 @@ public class CharacterManager
             var controller = p.m_VisualCharacter.GetComponent<AIController>();
             if (!controller)
             {
-                p.m_AIControl.InitController(p.m_VisualCharacter.gameObject);
                 controller = p.m_VisualCharacter.GetComponent<AIController>();
             }
             if (p != m_CurrentPlayer)

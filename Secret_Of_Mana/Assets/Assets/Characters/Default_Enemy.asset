@@ -14,6 +14,9 @@ MonoBehaviour:
   m_CharacterName: 'Enemy #1'
   m_MaxHealthPoints: 10
   m_MaxManaPoints: 10
+  m_ManaRefreshRate: 1
   m_Attack: 1
   m_Defence: 1
   m_Speed: 1
+  m_UnarmedRange: 1
+  m_UnarmedRateOfAttack: 1
