@@ -48,6 +48,7 @@ public class UIManager
         {
             m_CharacterPanel.gameObject.SetActive(false);
             m_InventoryPanel.gameObject.SetActive(true);
+            GameManager.m_Instance.m_UIManager.m_InventoryPanel.Refresh();
             Time.timeScale = 0f;
         }
     }
@@ -63,6 +64,7 @@ public class UIManager
         {
             m_InventoryPanel.gameObject.SetActive(false);
             m_CharacterPanel.gameObject.SetActive(true);
+            GameManager.m_Instance.m_UIManager.m_CharacterPanel.Refresh();
             Time.timeScale = 0f;
         }
     }
